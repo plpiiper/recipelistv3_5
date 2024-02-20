@@ -1,0 +1,264 @@
+:root {
+    /* Colors */
+    --cMain: #CABAC8; /* not in use*/
+    --cSec: #ffffff;
+    --cBack: #000000;
+    /* fonts */
+    --fTitle: "Julius Sans One", sans-serif;
+    --fText: "Smooch Sans", serif;
+    --fText2: "Kumbh Sans", serif;
+    --fText3: "Cairo", serif;
+    /* font sizes  --- not currently used */
+    --fsBase: 1rem;
+    --fsH1: 5.3rem;
+    --fsH2: 1.75rem;
+    --fsH3: 1.5rem;
+    --fsH4: 1.25rem;
+    /* drop shadows */
+    --shadow1: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    --bgCol1: white;
+}
+
+
+.material-symbols-outlined {
+    font-variation-settings:
+            'FILL' 0,
+            'wght' 200,
+            'GRAD' 0,
+            'opsz' 24
+}
+html {
+    font-size: 18px !important;
+}
+body {
+    padding: 0; margin: 0; width: 100%; height: 100%;
+    background-color: var(--bgCol1);
+    font-family: var(--fText);
+}
+
+div, input, span, a, h1, h2, h3, textarea, button {
+    position: relative;
+    box-sizing: border-box;
+    font: inherit;
+    border: none; outline: none;
+}
+.no-link-style {
+    color: inherit; font: inherit; text-decoration: inherit;
+}
+
+#homePage {
+    width: 100%; height: 100%;
+}
+
+#homePage > .top {
+    width: 100%; height: 50px;
+    padding: .25rem;
+
+    display: flex; align-content: center;
+    border-bottom: 2px solid black;
+}
+#homePage > .top > .searchBar {
+    display: flex;
+    border-right: 2px solid black;
+    width: 20%; min-width: 75px;
+}
+.searchBar .searchInput {
+    width: 100%; height: 100%;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+
+    border: none; outline: none;
+}
+#homePage > .top > .filterBar {
+    display: flex;
+    margin-left: 0.5rem;
+    align-items: center;
+    font-size: 1.75rem;
+    width: 70%;
+}
+.filterBar .filterTitle {
+    font: inherit;
+    margin: 0 1rem 0 0;
+}
+.filterBar .icon {
+    cursor: pointer;
+    padding: 1rem;
+} .filterBar .icon:hover {color: red;}
+
+#homePage > .top > .addBar {
+    display: flex;
+    align-items: center; justify-content: right;
+    width: 10%; height: 100%;
+}
+.iconA {
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; color: inherit;
+}
+
+.recipeDiv {
+    width: 100%; height: 50px;
+    display: flex; align-items: center;
+    font-size: 1.5rem; font-family: var(--fText3); font-weight: lighter;
+    padding: 1.5rem 2rem;
+    border-bottom: 2px solid black;
+}
+.recipeFav {
+    cursor: pointer; font-size: 2rem;
+} .favorited {color: red;}
+.recipeCat { min-width: 150px; padding: 0 1rem; font-size: 1.25rem; }
+.recipeName {
+    padding: 1rem; font: inherit;
+    color: inherit; text-decoration: none;
+    flex-wrap: wrap;
+    display: flex; flex-wrap: wrap;
+    font-size: 1.25rem;
+} .recipeName:hover {text-decoration: black;}
+
+
+/* recipe.html */
+#recipePage {
+    width: 100%; height: 100vh;
+    display: flex;
+}
+#recipePage > .left {
+    width: 80%; height: 100%;
+    display: flex; flex-direction: column;
+    padding: 1rem;
+    overflow: auto;
+}
+.ingredientDiv {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    margin: 0.25rem 0;
+    border: 1px solid black;
+    display: flex;
+    font-size: 1.5rem;
+    font-family: Cairo; font-weight: lighter;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.ingredientDiv:has(.ingredientDivHeader){
+    flex-direction: column;
+    align-items: unset;
+}
+.ingredientDivHeader {
+    font-weight: bold;
+}
+.ingredientDiv > .ingredientDiv {
+    margin-left: 1.5rem; width: calc(100% - 1.5rem);
+}
+.idAmount, .idSize, .idIngredient {
+    margin-right: 1rem;
+    min-width: 50px;
+}
+.idNumber {font-size: 1rem;}
+.idAmount {text-align: center;}
+.idCommentList {
+    font-size: 1.2rem; font-style: italic;
+    display: flex; flex-wrap: wrap;
+    gap: 2rem;
+    margin-left: 1rem;
+}
+
+.stepDiv {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    margin: 0.25rem 0;
+    border: 2px solid black;
+    display: flex;
+    font-size: 1.5rem;
+    font-family: Cairo; font-weight: lighter;
+    align-items: center;
+    border-radius: 4px;
+}
+.rlHeader {
+    font-size: 2rem; font-weight: bold;
+}
+
+
+#recipePage > .right {
+    width: 25%; min-width: 200px;
+    height: 100%;
+    border-left: 2px solid black;
+    display: flex; flex-direction: column;
+    padding: 0.5rem 1rem;
+}
+
+.rlTitle {
+    font-size: 2.5rem;
+    margin: 0;
+}
+#recipePage .rlBtn, #recipePage .iconA {
+    width: fit-content;
+    font-size: 1.5rem;
+    margin: 0 1rem 0 0; border-radius: 0.2rem;
+    padding: 0.5rem 0.75rem;
+    background-color: white; border: 1px solid black;
+}
+.iconA {
+    padding: 0.25rem; cursor: pointer;
+} .iconA span {font-size: 2rem;}
+  .iconA:hover {color: orange;}
+.rlFlex {display: flex; align-items: center; margin: 1rem 0;}
+.rlLink {
+    font-size: 2rem; margin-bottom: 1rem;
+} .rlLink:hover {text-decoration: underline;}
+
+#recipePage .exitBtn {
+    position: absolute;
+    bottom: 1rem; right: 0;
+    z-index: 2;
+    padding: 0.25rem;
+}
+
+@media only screen and (max-width: 800px) {
+    #recipePage {
+        flex-direction: column-reverse;
+    }
+    #recipePage > div {
+        width: 100% !important;
+        height: fit-content !important;
+    }
+    .rlTitle {width: 100%;}
+    #recipePage > .right {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: end;
+        border-left: none;
+        border-bottom: 2px solid black;
+    }
+    #recipePage > .right > .rlLink {
+        margin-right: 2rem; justify-content: right;
+    }
+    #recipePage > .right .iconA span, .rlBtn {
+        font-size: 1.5rem !important;
+        padding: 0.15rem;
+    }
+    .rlBtn { padding: 1rem;}
+    .ingredientDiv, .stepDiv {
+        font-size: 1.3rem;
+    }
+
+    #recipePage .exitBtn {bottom: unset; top: 1rem;}
+}
+
+/* Filterpopup */
+#filterCat.selected {color: orange;}
+#filterPopup {
+    width: 300px; height: 400px;
+    background-color: white; border: 2px solid black; border-top: none;
+    position: absolute;
+    z-index: 3;
+    top: 50px; left: 311px;
+    display: flex; flex-direction: column;
+    overflow-y: auto;
+}
+.filterPopupDiv {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin: 0.5rem 0;
+    display: flex;
+    background-color: transparent;
+} .filterPopupDiv:hover {background-color: #ececec; cursor: pointer;}
+    .fpName {width: 100%; text-align: left;}
+    .filterPopupDiv.selected {background-color: #a1c2d0 !important;}
