@@ -37,39 +37,6 @@ if (locArr.length > 1){
 }}
 
 
-function addIngredient(obj){
-    let div = cre("div","ingredientDiv");
-        if (obj.type){
-            div.classList.add("list");
-            let ti = append(cre("div","ingredientDivHeader"),div);
-                ti.innerText = obj.type.toUpperCase();
-            addArrayChildren(div,addIngredient,obj.ingredients)
-            if (obj.type === "alternatives"){
-                for (var i=1; i<div.childNodes.length; i++){
-                    let tx = prepend(cre("span","idNumber"),div.childNodes[i])
-                        tx.innerText = "(#" + i + ")";
-                }
-            }
-        } else {
-            if (obj.amount){
-                let sp = append(cre("span","idAmount"),div); sp.innerText = obj.amount
-            }
-            if (obj.size){
-                let sp = append(cre("span","idSize"),div); sp.innerText = obj.size
-            }
-            if (obj.ingredient){
-                let sp = append(cre("span","idIngredient"),div); sp.innerText = obj.ingredient
-            }
-            if (obj.comment){
-                let sp = append(cre("div","idCommentList"),div);
-                    for (var i=0; i<obj.comment.length; i++){
-                        let sc = append(cre("span","idComment"),sp);
-                            sc.innerText = obj.comment[i];
-                    }
-            }
-        }
-    return div
-}
 function addStep(tx){
     let div = cre("div","stepDiv");
         div.innerText = tx;

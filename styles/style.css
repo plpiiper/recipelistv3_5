@@ -36,7 +36,7 @@ body {
     font-family: var(--fText);
 }
 
-div, input, span, a, h1, h2, h3, textarea, button {
+div, input, span, a, h1, h2, h3, textarea, button, select {
     position: relative;
     box-sizing: border-box;
     font: inherit;
@@ -44,6 +44,10 @@ div, input, span, a, h1, h2, h3, textarea, button {
 }
 .no-link-style {
     color: inherit; font: inherit; text-decoration: inherit;
+}
+.coverDiv {
+    width: 100vw; height: 100vh; position: fixed; background-color: rgba(0,0,0,0.4); top: 0; left: 0;z-index: 5;
+    display: flex; justify-content: center; align-items: center;
 }
 
 #homePage {
@@ -94,6 +98,28 @@ div, input, span, a, h1, h2, h3, textarea, button {
     display: flex; align-items: center; justify-content: center;
     text-decoration: none; color: inherit;
 }
+
+/* Filterpopup */
+#filterCat.selected {color: orange;}
+#filterPopup {
+    width: 300px; height: 400px;
+    background-color: white; border: 2px solid black; border-top: none;
+    position: absolute;
+    z-index: 3;
+    top: 50px; left: 311px;
+    display: flex; flex-direction: column;
+    overflow-y: auto;
+}
+.filterPopupDiv {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    margin: 0.5rem 0;
+    display: flex;
+    background-color: transparent;
+} .filterPopupDiv:hover {background-color: #ececec; cursor: pointer;}
+.fpName {width: 100%; text-align: left;}
+.filterPopupDiv.selected {background-color: #a1c2d0 !important;}
+
 
 .recipeDiv {
     width: 100%; height: 50px;
@@ -151,7 +177,7 @@ div, input, span, a, h1, h2, h3, textarea, button {
     margin-right: 1rem;
     min-width: 50px;
 }
-.idNumber {font-size: 1rem;}
+.idNumber {font-size: 1rem; margin-right: 1rem;}
 .idAmount {text-align: center;}
 .idCommentList {
     font-size: 1.2rem; font-style: italic;
@@ -237,28 +263,162 @@ div, input, span, a, h1, h2, h3, textarea, button {
     .rlBtn { padding: 1rem;}
     .ingredientDiv, .stepDiv {
         font-size: 1.3rem;
+    } #recipeEditor .ingredientDiv, .stepDiv {
+        font-size: 1rem !important;
     }
 
     #recipePage .exitBtn {bottom: unset; top: 1rem;}
 }
-
-/* Filterpopup */
-#filterCat.selected {color: orange;}
-#filterPopup {
-    width: 300px; height: 400px;
-    background-color: white; border: 2px solid black; border-top: none;
-    position: absolute;
-    z-index: 3;
-    top: 50px; left: 311px;
-    display: flex; flex-direction: column;
-    overflow-y: auto;
+/* recipe editor */
+#recipeEditor {
+     width: 100%; height: 100vh;
+     display: flex; flex-direction: column;
+ }
+ #recipeEditor > .top {
+     width: 100%; height: 75px;
+     border-bottom: 2px solid black;
+     padding: 0.5rem 1rem;
+     align-items: center;
+     display: flex;
+     gap: 2rem;
+ }
+ #recipeEditor > .top > input {
+    font-size: 1.5rem;
+    border-bottom: 1px solid black;
+    width: 50%;
+ }
+#recipeEditor > .top > select {
+    font-size: 1.2rem;
+    width: 15%;
+    border: 1px solid black;
+    padding: 0.5rem 1rem;
 }
-.filterPopupDiv {
-    width: 100%;
-    padding: 0.75rem 1rem;
-    margin: 0.5rem 0;
+#recipeEditor > .top button {
+    font-size: 1.2rem;
+    background-color: white;
+    border: 1px solid black;
+    padding: 0.5rem 1rem;
+} #recipeEditor > .top button:hover {cursor: pointer; border-color: orange; color: orange;}
+
+#recipeEditor > .bot {
+    width: 100%; height: calc(100% - 75px);
     display: flex;
-    background-color: transparent;
-} .filterPopupDiv:hover {background-color: #ececec; cursor: pointer;}
-    .fpName {width: 100%; text-align: left;}
-    .filterPopupDiv.selected {background-color: #a1c2d0 !important;}
+}
+#recipeEditor > .bot button {
+    font-size: 1.2rem;
+    background-color: white;
+    border: 1px solid black;
+    padding: 0.5rem 1rem;
+} #recipeEditor > .bot button:hover {cursor: pointer;}
+.reIngredientsDiv,.reStepsDiv {
+    width: 50%; height: 100%;
+    border-right: 2px solid black;
+    padding: 1rem;
+    display: flex; flex-direction: column;
+    align-items: center;
+} .reStepsDiv {border-right: none;}
+.reTitle {
+    font-size: 2rem; text-align: center;
+    margin: 0;
+}
+.reIngredientsDiv .list, .reStepsDiv .list {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    overflow: auto;
+}
+.reStepsDiv .list textarea {
+    width: 100%; height: 100px;
+    margin-bottom: 1rem;
+    resize: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid black;
+}
+
+.reIngredientDiv {
+    width: 100%;
+    padding: 1rem;
+}
+
+
+
+.largePopupDiv {
+    width: 720px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    background-color: white;
+    padding: 1rem 4rem;
+
+    display: flex; flex-direction: column;
+
+    overflow: auto;
+}
+.largePopupDiv.left {
+    left: 0;
+    border-radius: 0 1rem 1rem 0;
+}
+.largePopupDiv.right {
+    right: 0;
+    border-radius: 1rem 0 0 1rem;
+}
+
+.lpHeader {
+    text-align: center;
+    margin: 0;
+    font-size: 3.5rem;
+    font-weight: lighter;
+}
+.lpExit {
+    text-align: center;
+    font-size: 2rem;
+} .lpExit:hover {cursor: pointer; text-decoration: underline;}
+.lpBody {
+    height: 100%;
+    overflow: auto;
+}
+
+.popupInputElem {
+    width: 100%;
+    border: 1px solid black;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    padding: 1rem;
+}
+.popupInputElem input {
+    border-bottom: 1px solid black;
+    padding: 0.5rem 0.25rem;
+    font-size: 1.2rem;
+    margin: 0.25rem 0.5rem;
+}
+.ppieAmount {width: 4rem;}
+.ppieSize {width: 10rem;}
+.ppieIng {width: calc(100% - 18rem);}
+
+.ppieComs {
+    display: flex; flex-direction: column;
+    margin: 1rem 0;
+    width: 100%;
+}
+.ppieComs > .top {display: flex; font-size: 1.5rem; align-items: center; gap: 1rem;}
+.ppieComs > .list {
+    display: flex; flex-direction: column;
+    font-size: 1.5rem;
+    align-items: center;
+    width: 100%;
+}
+.ppieComDiv {
+    display: flex; width: 100%;
+    align-items: center;
+}
+.ppieComDiv button {
+    color: red;
+    border-radius: 2rem;
+    padding: 0.5rem;
+    min-width: 2rem; min-height: 2rem;
+    width: 2rem; height: 2rem;
+    display: flex; align-items: center; justify-content: center;
+    background-color: transparent; cursor: pointer;
+} .ppieComDiv button:hover { border: 1px solid black;}
+.ppieComDiv input {
+    display: flex; width: 100%;
+}

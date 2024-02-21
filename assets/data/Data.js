@@ -1,3 +1,8 @@
+const nvRandomIDChars = {
+    num: "0123456789",
+    letters: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+}
+
 var recipeList = [
     {
         "name": "Beef Stroganoff",
@@ -110,13 +115,13 @@ var recipeList = [
             "When the mushrooms and shallots are soft and caramelized, deglaze the pan with the wine, scraping at all the stuck-on bits on the pan's surface. When the wine has reduced by about half, slowly stir in the cream, followed by the Worcestershire and mustard. Add the meat, along with any accumulated juices, and stir to combine. Cook, stirring occasionally, until the dish is hot and the beef is medium-rare, 2-3 minutes. Taste and adjust the seasonings.",
             "Serve the noodles under or alongside the stroganoff; sprinkle stroganoff with parsley."
         ],
-        "id": "0050VSNE"
+        "id": "VYJ1HJB4"
     },
     {
         "name": "Beer-braised Beef and Onions",
         "cat": "Red Meat",
         "time": 210,
-        "id": "8678JFXI",
+        "id": "8YK96NKZ",
         "ingredients": [
             {
                 "amount": 1,
@@ -387,7 +392,7 @@ var recipeList = [
             "Return meat to the pot. Add broth, then cover the pot and transfer to the oven. Cook for 2 hours 20 minutes.",
             "Let roast sit at room temperature for at least 10 minutes. Remove meat to a cutting board to slice. Discard bay leaves and rosemary stems. Squeeze any garlic cloves remaining in their skins into the stew and discard the skins. Serve slices of meat in shallow bowls along with the vegetables and a generous amount of cooking liquid ladled over top."
         ],
-        "id": "1266QPEA"
+        "id": "08I5AKBB"
     },
     {
         "name": "Geraldine's Pot Roast",
@@ -483,7 +488,7 @@ var recipeList = [
             "Return the meat to the pot, reduce the heat and simmer, covered, for 2 hours. Stir in the olives, mustard and tomato paste, and simmer for an additional hour, until the meat is very tender.",
             "Transfer the meat to a platter. If the sauce in the pot seems too watery, simmer, uncovered, until it thickens slightly. Season the sauce with the salt and pepper and pour over the meat. Serve immediately."
         ],
-        "id": "6368THAR"
+        "id": "O7G5A5AI"
     },
     {
         "name": "Soy-Ginger Flank Steak",
@@ -604,7 +609,7 @@ var recipeList = [
             "Season the flank steak lgihtly with black pepper. Brush the top side of the flank steak with some of the soy glaze, then broil it for 4 minutes. Using tongs, turn the steak, then brush the second side with the glaze.Broil the glank steak until it is done to your liking, about 4 minutes longer for medium-rare. Transfer the steak to a cutting board and let it sit for 5 minutes. Meanwhile, bring the remaining soy glaze to a simmer over low heat.",
             "Thinly slice the flank steak across the grain and brush the slices with some of the reheated soy glaze. Transfer the sliced steak to a platter and scatter the scallions, if using, on top. Arrange the lime wedges on the edge of the platter for people to squeeze over their steak if they like. Put the rest of the soy glaze in a small pitcher or bowl to serve at the table for drizzling over the rice."
         ],
-        "id": "1874UZAL"
+        "id": "6T597Y44"
     },
     {
         "name": "Ground Lamb Pulao",
@@ -732,7 +737,7 @@ var recipeList = [
             "Drain the soaked rice. Add to the same saucepan and cover with water by 1 inch. Stir in 1 tablespoon lime juice, the turmeric and the remaining 1 teaspoon salt. Bring to a boil over medium heat, then cover, and reduce heat to a simmer until the rice absorbs all the water, about 10 minutes. (Do not stir the rice as it ccoks, or the grains might break.) Remove the saucepan from heat, and let sit, uncovered, for 5 minutes.",
             "Stir the rice into the cooked Iamb mixture, then drizzle with the remaining 1 tablespoon lime juice. Fold the scallions and mint into the rice, and serve immediately."
         ],
-        "id": "5805XOWZ"
+        "id": "770CQPF8"
     },
     {
         "name": "Thin Pan-Seared Pork Chops",
@@ -869,7 +874,7 @@ var recipeList = [
             "Cook for about 4 minutes, until chops are nicely browned, then turn and cook for about 3 minutes more, until firm to the touch. Transfer to a warm platter.",
             "Put herb salad leaves in a shallow bowl and season lightly with salt. Toss leaves with half the dressing, just to coat. Place dressed salad on top of pork chops. Drizzle remaining dressing over the top, add shavings of Pecorino cheese (if using), and serve."
         ],
-        "id": "2134VSET"
+        "id": "J668JL7W"
     },
     {
         "name": "Skillet Braised Marinated Pork Chops",
@@ -960,7 +965,7 @@ var recipeList = [
             "Heat oil in skillet. Remove chops from marinade and brown on both sides. Add marinade and wine. Cover and simmer 30 minutes. Turning once or until pork is whitish-pink in center and tender. Be careful not to overcook. Season with salt and pepper.",
             "Remove chops. Reduce juices in pan and pour over chops."
         ],
-        "id": "6756ZRFK"
+        "id": "LWYD97K7"
     },
     {
         "name": "(Broiled) Grilled Veal Chops",
@@ -1025,7 +1030,7 @@ var recipeList = [
             "Prepare grill or stove for 15 minutes on high.",
             "Drain veal chops. Salt and place on grill. Cook until golden with black grill marks for 5 minutes on each side. Garnish with lemon wedges."
         ],
-        "id": "8068LKYO"
+        "id": "1B66601X"
     },
     {
         "name": "Grilled Veal with Pancetta, Fava Beans & Pear",
@@ -1151,7 +1156,7 @@ var recipeList = [
             "Preheat barbecue (medium-high heat). Brush veal with remaining 2 tablespoons of marsala. Season with salt and pepper. Grill until just medium, approximately 3 minutes per side. Transfer veal to plates.",
             "Meanwhile, simmer sauces 3 minutes. Season to tase with salt and pepper, stir in pancetta. Spoon sauce over veal and serve immediately."
         ],
-        "id": "1035PFXH"
+        "id": "2W9C015A"
     },
     {
         "name": "Veal Chops with Basil",
@@ -1236,7 +1241,7 @@ var recipeList = [
             "Return the chops to skillet, overlapping them slightly if necessary. Add the basil and the mushrooms and cook 15-20 minutes or until chops are cooked. They should be pink in the middle.",
             "Remove the chops from the pan. Add wine, salt, and pepper and bring to a boil. Cook 2-3 minutes. Return chop to pan and sprinkle with basil."
         ],
-        "id": "1743NCPS"
+        "id": "E7OMIY1K"
     },
     {
         "name": "Red Wine-Braised Chicken Thighs with Root Vegetables",
@@ -1406,7 +1411,7 @@ var recipeList = [
             "Add the remaining oil to the empty pot, followed by the onions and the diced vegetables and cook, stirring occasionally, softened slightly, about 4 minutes. Add the garlic and cook for 30 seconds more, then stir in the tomato paste and thyme. Add the wine, bring to a boil and cook, uncovered, for about 2 minutes. Add the broth, bay leaf and the remaining 1/2 teaspoon salt and 1/4 teaspoon pepper and return to a boil.",
             "Return the chicken, along with any accumulated juices, to the pot. Reduce the heat to medium-low, cover, and simmer until the chicken is cooked through and the vegetables are tender, about 25 minutes. Using a slotted spoon, transfer the chicken and vegetables to a rimmed serving plate and tent with foil. Increase the heat to high and cook until the sauce is reduced to about 2 cups, 5 to 10 minutes. Discard the bay leaf, then stir in the vinegar, and season to taste with additional salt and pepper, if desired. Pour the sauce over the chicken and vegetables, garnish with the parsley and serve."
         ],
-        "id": "3625ANKJ"
+        "id": "6WG7PN11"
     },
     {
         "name": "Roasted Chicken Provencal",
@@ -1500,7 +1505,7 @@ var recipeList = [
             "Put the pan in the oven, and roast for 25 to 30 minutes, then baste it with the pan juices. Continue roasting for another 25 to 30 minutes, or until the chicken is very crisp and the meat cooked through.",
             "Serve in the pan or on a warmed platter, garnished with the thyme."
         ],
-        "id": "0534YEXT"
+        "id": "8E9R58J8"
     },
     {
         "name": "Three Cup Chicken",
@@ -1598,7 +1603,7 @@ var recipeList = [
             "Add sugar and stir to combine, then add the rice wine and soy sauce, and bring just to a boil. Lower the heat, then simmer until the sauce has reduced and started to thicken, approximately 15 minutes.",
             "Turn off the heat, add the basil and stir to combine. Serve with white rice."
         ],
-        "id": "0560CTDC"
+        "id": "G328CP39"
     },
     {
         "name": "Oven-Roasted Chicken Shawarma",
@@ -1705,7 +1710,7 @@ var recipeList = [
             "(Optional) To make the chicken even more crisp, set a large pan over high heat, add a tablespoon of olive oil to the pan, then the sliced chicken, and sauté until everything curls tight in the heat.",
             "Scatter the Parsley over the top and serve with tomatoes, cucumbers, pita, white sauce, hot sauce, olives, fried eggplant, feta, rice (or really anything you want to)"
         ],
-        "id": "5500IVOP"
+        "id": "E3HN4R94"
     },
     {
         "name": "Vinegar Chicken with Crushed Olive Dressing",
@@ -1780,7 +1785,7 @@ var recipeList = [
             "Once chicken is cooked, remove baking sheet from the oven and transfer chicken to a large serving platter, leaving behind any of the juices and bits stuck to the pan.",
             "Make sure the baking sheet is on a sturdy surface, then pour the olive mixture onto the sheet. Using a spatula or wooden spoon, gently scrape up all the bits the chicken left behind, letting the olive mixture mingle with the rendered fat and get increasingly saucy. Pour olive mixture over the chicken, then serve."
         ],
-        "id": "6244LSIN"
+        "id": "UDS2R5QN"
     },
     {
         "name": "Crispy Paremsan Roast Chicken with Lemon",
@@ -1852,7 +1857,7 @@ var recipeList = [
             "Roast chicken for 30 minutes. Sprinkle chicken all over with Parmesan, then continue roasting until bird's juices run clear when skin is pierced with a knife and the skin is golden, 25-30 minutes longer.",
             "Let chicken for 10 minutes. Squeeze juice from the zested lemon, to taste, into the pan drippings and season with more salt and red-pepper flakes if you like. Carve and serve with drippings spooned over the meat."
         ],
-        "id": "3725OLGI"
+        "id": "AMY29W7S"
     },
     {
         "name": "Bhatti Da Murgh (Indian Grilled Chicken with Whole Spices)",
@@ -2017,7 +2022,7 @@ var recipeList = [
             "(Optional) If you are grilling, you can sear the chicken over direct hear for 1-2 minutes per side just before serving to char the skin.",
             "Serve chicken on a platter, with lime wedges on the side."
         ],
-        "id": "1245BRZX"
+        "id": "17L9V863"
     },
     {
         "name": "Sheet-Pan Miso Chicken with Radishes and Lime",
@@ -2116,7 +2121,7 @@ var recipeList = [
             "If the chicken skin is not as browned as you’d like, broil on the rack near the broiler until the skin is crispy and golden, 1 to 2 minutes.",
             "Squeeze the lime juice over chicken and radishes, then garnish with the scallions and sesame seeds, if using. Divide among plates and serve."
         ],
-        "id": "8850DZQV"
+        "id": "4SWHC1NM"
     },
     {
         "name": "Cornish Game Hen (Glaze)",
@@ -2304,7 +2309,7 @@ var recipeList = [
             "<mark>[F] Mexican Spiced</mark>: Rub the outside of the hens with packaged taco seasoning and lightly coat with cooking spray.",
             "<mark>[G] Mustard-Herb</mark>: Coat the outside of each hen with about 1 tablespoon of Dijon mustard. Sprinkle with a mixture of dried tarragon, basil, and thyme. Deglaze the pan after roasting with 3/4 cup of white wine and serve with the pan juices."
         ],
-        "id": "1234IPHG"
+        "id": "ABCT5P7O"
     },
     {
         "name": "Cornish Hens with Lemon & Sage",
@@ -2364,7 +2369,7 @@ var recipeList = [
             "Put hens on their sides on a rack and roast for 15 minutes. Turn them on the other side, roast another 15 minutes, then continue to cook hens until golden brown and juices run clear (about 15 more minutes).",
             "Serve hens on 2 individual heated plates."
         ],
-        "id": "2507FFDC"
+        "id": "8GSX4CU6"
     },
     {
         "name": "Chicken and Rice with Scallion-Ginger Sauce",
@@ -2459,7 +2464,7 @@ var recipeList = [
             "Meanwhile, in a medium bowl, combine the vegetable oil, scallions, vinegar, jalapeno, sesame seeds, sesame oil, sugar and remaining ginger; season with salt and pepper.",
             "Remove chicken from saucepan and slice ½-inch thick crosswise. Fluff rice with a fork and divide among bowls. Top with chicken and scallion-ginger sauce."
         ],
-        "id": "7680MQOI"
+        "id": "37VX414X"
     },
     {
         "name": "Ginger-Scallion Chicken",
@@ -2563,7 +2568,7 @@ var recipeList = [
             "Heat oil in a wok or 12-inch skillet or over very high heat. When it's shimmering but not smoking, stir in chicken and salt. Cook, stirring almost constantly, until chicken is barely cooked and no longer pink, 3 to 5 minutes. Use a slotted spoon to transfer chicken onto a serving plate, leavint the oil in the pan. Imemdiately scatter cilantro and scallion greens (not whites) over hot chicken.",
             "Return wok to medium-high heat. Make sure there are at least 2 tablespoons oil in the wok. If not, add more oil. Stir in ginger and cook until lightly browned, about 1 minutes. Stir in scallion whites, soy sauce and sugar, and cook for another 30 seconds (if using a skillet, remove from heat). Immediately spoon the contents of the pan evenly over chicken and herbs. Serve right away."
         ],
-        "id": "7387AQBW"
+        "id": "59C3MN88"
     },
     {
         "name": "Bake Rice with Chicken and Mushroom",
@@ -2684,7 +2689,7 @@ var recipeList = [
             "While rice is baking, sauté remaining mushrooms: Melt butter in a large skillet over high heat. Add mushrooms, season with salt and pepper and cook, rapidly stirring, until they have softened and browned, 5 to 7 minutes. Add peas, if using, and heat through. Turn off heat, then add reserved chopped thyme, the garlic and the parsley. Toss to coat well.",
             "Fluff rice, then top with sautéed mushrooms and serve."
         ],
-        "id": "0164EZAJ"
+        "id": "QT336WC9"
     },
     {
         "name": "Middle Eastern Herb and Garlic Chicken",
@@ -2814,7 +2819,7 @@ var recipeList = [
             "Heat grill or broiler. If grilling, cook chicken over high heat until charred in spots, 4 to 7 minutes. Flip pieces and continue grilling until just cooked through, another 4 to 7 minutes. If broiling, arrange a rack 3 to 4 inches from flame. Line a rimmed baking sheet with foil and spread chicken out in a single layer. Broil chicken, turning halfway through cooking, until well colored and charred in spots, 4 to 7 minutes per side. Be careful that it doesn’t burn.",
             "While chicken cooks, place yogurt in a small bowl. Stir in the reserved grated garlic and lemon zest and season to taste with salt. Serve the chicken drizzled with olive oil, remaining lemon juice to taste, black pepper, parsley and sesame seeds and sumac, if using, with the yogurt alongside for dipping."
         ],
-        "id": "6027YCFI"
+        "id": "D696927Y"
     },
     {
         "name": "Miso Chicken in Ginger, Leek, & Scallion Broth",
@@ -2932,7 +2937,7 @@ var recipeList = [
             "While chicken is cooking, bring broth to a simmer, taste and adjust seasoning. Add leeks and cook until just done — soft, but still green, about 5 minutes.",
             "To serve, slice chicken into 1/4-inch pieces and divide among large soup bowls, then ladle broth on top. Spoon any remaining miso mixture from pan over chicken. Garnish with scallions."
         ],
-        "id": "3060YNAU"
+        "id": "UK052834"
     },
     {
         "name": "Chicken Shawarma",
@@ -3126,7 +3131,7 @@ var recipeList = [
             "Cut the chicken into 1/2- to 1-inch (1- to 2.5-cm) pieces.Arrange the chicken in a large bowl or on a platter. Scatter the parsley over the top, if using.",
             "If desired, arrange small bowls of extras alongside the chicken and let everyone customize the chicken shawarma to their liking."
         ],
-        "id": "0646ZRRI"
+        "id": "0S71WPA4"
     },
     {
         "name": "Chicken Florentine",
@@ -3237,7 +3242,7 @@ var recipeList = [
             "In a large covered skillet, sauté the remaining olive oil and garlic and onion over medium heat. After 1 minute, reduce the heat and add 1/2 cup of white wine. Cook slowly over low heat; reduce until slightly thick (about 3-4 minutes). Add the spinach, Italian herb seasoning, Parsley, lemon, and black pepper. Cover tightly and cook until al dente (about 6 minutes).",
             "Put exactly 2 cups of water in a separate tightly lidded saucepan, and bring to a fast boil. Add 1 cup of rice and boil for exactly 20 minutes. To serve, pour the cooked spinach in sauce onto a serving platter, and arrange the rice around the outside. Place the pieces of chicken on the bed of spinach. Garnish with thinly sliced tomato, if desired."
         ],
-        "id": "8224MSPE"
+        "id": "QOJAPNL5"
     },
     {
         "name": "Chicken with Tarragon, Shallots, Vinegar",
@@ -3330,7 +3335,7 @@ var recipeList = [
             "Bring to a boil, then simmer for 5 minutes.",
             "Serve with rice."
         ],
-        "id": "1333GCJG"
+        "id": "F4P0Q7O0"
     },
     {
         "name": "Fippy Chicken",
@@ -3376,7 +3381,7 @@ var recipeList = [
             "Add more to marinade, include breadcrumbs and ehat up in separate pot.",
             "Bake chicken 350 degrees for about 20-25 minutes."
         ],
-        "id": "0003ILRB"
+        "id": "5XY007I3"
     },
     {
         "name": "Roast Chicken with Garlic",
@@ -3422,7 +3427,7 @@ var recipeList = [
             "Roast 45-60 minutes or until chicken is cooked, basting frquently. Garlic should roast without bruning, once water is evaporated. If garlic browns too fast, add a little more water.",
             "Serve chicken, surrounded by garlic on platter."
         ],
-        "id": "5711WTFL"
+        "id": "0LDOMG7J"
     },
     {
         "name": "Brined Chicken",
@@ -3582,7 +3587,7 @@ var recipeList = [
             "Drain chicken well and discard brine. Cut off and discard wing tips. Preheat oven to 350 degrees. In a roasting pan, place carrots, celery, and onion. Place chicken on top of vegetables. Brush chicken with melted butter.",
             "Roast chicken until thigh joint temperature reaches 150 degrees (about 1 hour). Baste with pan juices at least every 15 minutes. Watch carefully to avoid burning; if parts become well-browned, cover with foil. When chick is done, remove from oven, and allow it to rest 10 minutes before carving."
         ],
-        "id": "2044ZJLA"
+        "id": "UO969TT5"
     },
     {
         "name": "Nobu's Chicken Teriyaki",
@@ -3634,7 +3639,7 @@ var recipeList = [
             "Prick holes in the chicken with the tines of a fork. Pour the sauce over the chicken breasts and marinate, turning occasionally, for 6 hours, or overnight.",
             "Heat the grill. Scrape the excess sauce off the chicken and reserve. Brush the grill with oil. Grill the chicken for 5 minutes. Turn and baste with the sauce. Continue to turn and baste, using as much sauce as desired, until the juices run clear when pricked with a knife. About 12 to 15 minutes."
         ],
-        "id": "3264WQBZ"
+        "id": "57X9PUS4"
     },
     {
         "name": "Peruvian Chicken",
@@ -3727,7 +3732,7 @@ var recipeList = [
             "Roast the chicken for 40-45 minutes, basting the chicken in its own juices after 30 minutes, and again at 40 minutes. When the chicken is done, the breast should register at 160F when measured with a thermometer.",
             "Let the chicken rest for 5-10 minutes after roasting, so the juices don't run out while carving. Enjoy!"
         ],
-        "id": "7474TGGA"
+        "id": "FL3X7989"
     },
     {
         "name": "Chicken Breast w Mushrooms & Capers",
@@ -3782,7 +3787,7 @@ var recipeList = [
             "Add the onion, garlic, rosemary and mushrooms. Cook stirring about 5 minutes.",
             "Pour off the fat and add the vinegar, stirring to dissolve the brown particles clinging to the skillet. Add the capers, broth and tomato paste and blend well. Bring to a boil, cover and simmer 5 minutes. Add the Parsley and stir to coat the chicken well. Serve."
         ],
-        "id": "2177AEBS"
+        "id": "BP141JZI"
     },
     {
         "name": "Chicken Skillet w Orzo, Dill, & Fetas",
@@ -3914,7 +3919,7 @@ var recipeList = [
             "Heat the remaining 2 tablespoons olive oil in a large cast-iron skillet over medium-high heat. Remove the chicken from the marinade, letting the excess drip off, and cook until lightly golden all over, turning when the chicken releases easily from the pan, about 12 minutes total. Transfer chicken to a plate and set aside.",
             "Add the onion to the pan and stir to coat with the remaining fat. Decrease heat to medium and cook until soft, about 4 minutes. Stir in the orzo and the broth or water. Cook until the liquid is partly absorbed, stirring occasionally, about 5 minutes. Top with the chicken legs and cover with a lid or foil. Continue cooking until the orzo is tender, most of the liquid is absorbed, and the chicken is cooked through, 15 to 20 minutes more, depending on the size of your drumsticks or thighs. Remove from the heat and scatter the cucumber, feta and dill over the top. Serve from the skillet with lemon wedges and olives."
         ],
-        "id": "3422ZVLX"
+        "id": "0NASSW94"
     },
     {
         "name": "Halibut With Brown Butter, Lemon and Sage",
@@ -3995,7 +4000,7 @@ var recipeList = [
             "Make the sauce: Place skillet back on the stove over medium-high heat. Add butter and sage leaves. Cook butter, swirling the pan, until foamy and just beginning to brown, about 1 minute. Turn off heat and stir in lemon juice.",
             "Spoon butter sauce and sage leaves over fish. Sprinkle with bread crumbs and parsley. Serve immediately, with lemon wedges."
         ],
-        "id": "2513NVJW"
+        "id": "8TI667M4"
     },
     {
         "name": "Trout With Chive Butter",
@@ -4093,7 +4098,7 @@ var recipeList = [
             "Broil trout until just opaque, 2 to 5 minutes depending upon your broiler.",
             "Drop spoonfuls of butter on top of the fish; it will melt immediately. Top with more chives and with roe or capers, and a little more lemon juice if you like."
         ],
-        "id": "4470KZHY"
+        "id": "077Y6546"
     },
     {
         "name": "Shrimp Scampi",
@@ -4197,7 +4202,7 @@ var recipeList = [
             "Add the shrimp in a snug, even layer on top of the orzo, cover, and cook until all the shrimp is pink and cooked through, 2 to 4 minutes. Remove from heat and let sit, covered, 2 minutes.",
             "Sprinkle with parsley and lemon juice, season with salt and pepper, and serve immediately."
         ],
-        "id": "3868BGUZ"
+        "id": "6U7YKOEE"
     },
     {
         "name": "Roasted Salmon With Miso Rice and Ginger-Scallion Vinaigrette",
@@ -4315,7 +4320,7 @@ var recipeList = [
             "In a small bowl, combine soy sauce, scallions, vinegar and ginger, and season with salt and pepper.",
             "Divide miso rice and cabbage among bowls. Top with salmon, ginger-scallion vinaigrette and sesame oil."
         ],
-        "id": "8131FGLD"
+        "id": "0EG62F47"
     },
     {
         "name": "Salmon With Anchovy-Garlic Butter",
@@ -4394,7 +4399,7 @@ var recipeList = [
             "In a large ovenproof skillet, melt about half the anchovy butter. Add fish, skin side down. Cook for 3 minutes over high heat to brown the skin, spooning some pan drippings over the top of the fish as it cooks. Add capers to bottom of pan and transfer to oven. Roast until fish is just cooked through, 8 to 10 minutes.",
             "Remove pan from oven and add remaining anchovy butter to pan to melt. Place salmon on plates and spoon buttery pan sauce over the top. Squeeze the lemon half over the salmon and garnish with chopped parsley. Serve."
         ],
-        "id": "0058ULCA"
+        "id": "S0KP59Z8"
     },
     {
         "name": "Salty-Sweet Barbecue Salmon and Broccoli",
@@ -4525,7 +4530,7 @@ var recipeList = [
             "Stir the roasted broccoli. Season salmon with salt and arrange on top of the broccoli. Liberally brush salmon all over with half of the remaining oyster barbecue sauce in the saucepan. Roast until the vegetables are caramelized and the salmon is cooked through, 8 to 10 minutes, basting salmon after 5 minutes with the barbecue sauce.",
             "Divide salmon and vegetables among plates. Serve with steamed rice and the reserved barbecue sauce."
         ],
-        "id": "6664RAVJ"
+        "id": "ZDET38JR"
     },
     {
         "name": "Five-Ingredient Creamy Miso Pasta",
@@ -4612,7 +4617,7 @@ var recipeList = [
             "Add the butter, miso and 1 1/4 cups pasta water to the pot and whisk over medium heat until miso breaks down and liquid is uniform, 1 to 2 minutes. Add the pasta and Parmesan and cook, stirring vigorously with tongs until cheese is melted and sauce emulsifies. (The key word here is “vigorously.” To achieve a silky smooth pasta instead of a gloppy one, put your cacio e pepe skills to work.)",
             "Divide among shallow bowls and sprinkle with nori or furikake, if using."
         ],
-        "id": "6744TUBD"
+        "id": "J124Z3IG"
     },
     {
         "name": "Fast Spaghetti Bolognese",
@@ -4720,7 +4725,7 @@ var recipeList = [
             "Meanwhile, add tomato paste to skillet and cook, stirring, until darkened, about 1 minute. Add 1 cup water, Worcestershire, 1/2 teaspoon pepper and 1/2 teaspoon salt and simmer until slightly reduced, about 5 minutes.",
             "Using tongs, transfer pasta directly from the pot to the skillet along with 1 cup pasta water. Increase heat to high and simmer vigorously, tossing, until sauce reduces and coats the pasta, about 2 minutes. Season to taste with salt and pepper. Serve with Parmesan."
         ],
-        "id": "7216IJWN"
+        "id": "5BAM031G"
     },
     {
         "name": "Mapo Ragù",
@@ -4849,7 +4854,7 @@ var recipeList = [
             "Bring sauce to a simmer, and add the chopped greens, then stir to combine and cook until they have started to soften, approximately 5 minutes.",
             "If using rice cakes, place them in the boiling water for 3 to 5 minutes to soften, then drain and add to the sauce. (If not, serve the ragù with steamed rice, rice noodles or pasta.) Garnish with the sliced scallions."
         ],
-        "id": "6112QKJW"
+        "id": "6G00UZ7P"
     },
     {
         "name": "Linguine with Clam Sauce",
@@ -4963,7 +4968,7 @@ var recipeList = [
             "Add the cooked pasta directly to the skillet along with the butter and lemon zest and toss until the butter has melted and the pasta is glossy with sauce. If needed, add 1/4 cup reserved pasta water. Stir in half the parsley.",
             "Serve pasta topped with a drizzle of olive oil, if desired, and the remaining parsley. Serve lemon wedges alongside if you like."
         ],
-        "id": "7380CMKN"
+        "id": "596693KK"
     },
     {
         "name": "Marcella Hazan’s Bolognese Sauce",
@@ -5073,7 +5078,7 @@ var recipeList = [
             "Add the wine, let it simmer until it has evaporated, then add the tomatoes and stir thoroughly to coat all ingredients well. When the tomatoes begin to bubble, turn the heat down so that the sauce cooks at the laziest of simmers, with just an intermittent bubble breaking through to the surface. Cook, uncovered, for 3 hours or more, stirring from time to time. While the sauce is cooking, you are likely to find that it begins to dry out and the fat separates from the meat. To keep it from sticking, add 1/2 cup of water whenever necessary. At the end, however, no water at all must be left and the fat must separate from the sauce. Taste and correct for salt.",
             "Toss with cooked drained pasta, adding the tablespoon of butter, and serve with freshly grated Parmesan on the side."
         ],
-        "id": "1227SWPA"
+        "id": "04YL85XU"
     },
     {
         "name": "Sausage Ragù",
@@ -5193,7 +5198,7 @@ var recipeList = [
             "Meanwhile, bring a large pot of salted water to a boil. Boil pasta until just tender. Scoop out 2 cups cooking water, drain pasta and return to pot over low heat. Quickly add a ladleful of ragù, a splash of cooking water, stir well and let cook 1 minute. Taste for doneness. Repeat, adding more cooking water or ragù, or both, until pasta is cooked through and seasoned to your liking.",
             "Pour hot pasta water into a large serving bowl to heat it. Pour out the water and pour in the pasta. Top with remaining ragù, sprinkle with parsley and serve immediately. Pass grated cheese at the table, if desired."
         ],
-        "id": "6862BMET"
+        "id": "037894P7"
     },
     {
         "name": "Lemony White Bean Soup With Turkey and Greens",
@@ -5395,7 +5400,7 @@ var recipeList = [
             "Add the greens to the pot and simmer until they are very soft. This will take 5 to 10 minutes for most greens, but tough collard greens might take 15 minutes. (Add a little water if the broth gets too reduced.)",
             "Stir herbs and lemon juice into the pot, taste and add more salt, cumin and lemon until the broth is lively and bright-tasting. Serve topped with a drizzle of olive oil and more red-pepper flakes, if desired"
         ],
-        "id": "6412SBET"
+        "id": "MBA19XKQ"
     },
     {
         "name": "Roy Choi’s Braised Short-Rib Stew",
@@ -5522,7 +5527,7 @@ var recipeList = [
             "Put puréed sauce in a heavy-bottomed pot or Dutch oven with a lid, add 3 cups water and stir to combine. Bring pot to a boil over high heat, then add the ribs to the pot and lower heat to a simmer. Cover pot.",
             "Cook ribs over low for at least 2 hours. Add vegetables, cover and simmer, 30 minutes more or so, until meat is tender and vegetables are cooked through. Serve warm."
         ],
-        "id": "0481FHQK"
+        "id": "189U362X"
     },
     {
         "name": "Dijon and Cognac Beef Stew",
@@ -5632,7 +5637,7 @@ var recipeList = [
             "Add carrots, and continue simmering for 30 minutes, or until slices are tender. As they cook, heat 2 tablespoons butter in a medium skillet over medium-high, and sauté mushrooms until browned.",
             "Stir mushrooms into stew along with remaining mustard and red wine. Simmer 5 minutes, then taste, and adjust seasoning. Serve hot."
         ],
-        "id": "7672FXES"
+        "id": "05555539"
     },
     {
         "name": "Oliver's Chicken Stew",
@@ -5779,7 +5784,7 @@ var recipeList = [
             "Discard the bay leaf and parsley. Strain the vegetables, reserving the vegetables and the liquid. Return the stock to the pot; bring to a simmer. Pull the chicken meat off the bones. Add the pasta to the stock and cook for 3 minutes, then whisk in the butter, lemon juice, tarragon and parsley. Add the chicken and vegetables; heat through.",
             "To serve, place a piece of toast in the bottom of each of 6 bowls, then drizzle with olive oil and sprinkle with Parmesan. Top with stew."
         ],
-        "id": "5454EFVD"
+        "id": "3632BO1W"
     },
     {
         "name": "Red Wine Chicken Stew",
@@ -5952,7 +5957,7 @@ var recipeList = [
             "Add the remaining oil to the empty pot, followed by the onions and the diced vegetables and cook, stirring occasionally, softened slightly, about 4 minutes. Add the garlic and cook for 30 seconds more, then stir in the tomato paste and thyme. Add the wine, bring to a boil and cook, uncovered, for about 2 minutes. Add the broth, bay leaf and the remaining 1/2 teaspoon salt and 1/4 teaspoon pepper and return to a boil.",
             "Return the chicken, along with any accumulated juices, to the pot. Reduce the heat to medium-low, cover, and simmer until the chicken is cooked through and the vegetables are tender, about 25 minutes. Using a slotted spoon, transfer the chicken and vegetables to a rimmed serving plate and tent with foil. Increase the heat to high and cook until the sauce is reduced to about 2 cups, 5 to 10 minutes. Discard the bay leaf, then stir in the vinegar, and season to taste with additional salt and pepper, if desired. Pour the sauce over the chicken and vegetables, garnish with the parsley and serve."
         ],
-        "id": "1704IXLQ"
+        "id": "7XZG4F3O"
     },
     {
         "name": "Hungarian Mushroom Soup",
@@ -6062,7 +6067,7 @@ var recipeList = [
             "In a heavy pot or dutch oven sauté onions and mushrooms in butter over medium heat until onions are soft and translucent, about 15 minutes. Add dill, thyme, paprika, chicken broth, soy sauce and white wine. Bring to a simmer and cook until the liquid reduces by half. In a small bowl, whisk flour into milk until smooth. Add the milk mixture to the soup and cook until the soup begins to thicken, about 10 more minutes.",
             "Over low heat, slowly stir in the sour cream, and lemon juice until both are completely combined. Garnish the soup with parsley and serve hot."
         ],
-        "id": "4320DKUD"
+        "id": "I6T4K7S0"
     },
     {
         "name": "Homemade Ramen",
@@ -6162,7 +6167,7 @@ var recipeList = [
             "Stir in spinach, Narutomaki, carrot and chives until the spinach begins to wilt, about 2 minutes.",
             "Serve immediately, garnished with eggs."
         ],
-        "id": "6427LBST"
+        "id": "N7T17SZ4"
     },
     {
         "name": "Broccolini (or Asparagus) and Carrots",
@@ -6215,7 +6220,7 @@ var recipeList = [
             "In a small bowl, combine the broth, soy sauce, and corn starch, stirring to dissolve.",
             "In a large, nonstick skillet over high heat, heat the oil. Sauté green vegetables until bright green (about 2 minutes). Add the broth mixture and carrots. Cook, stirring constantly until vegetables are tender and sauce is thickened (about 3 minutes)."
         ],
-        "id": "0164KCJR"
+        "id": "D18SCC4L"
     },
     {
         "name": "Smashed Potatoes",
@@ -6248,7 +6253,7 @@ var recipeList = [
         "steps": [
             "Smash?"
         ],
-        "id": "2822ZAQH"
+        "id": "2710NS7P"
     },
     {
         "name": "Mashed Potaotes",
@@ -6288,7 +6293,7 @@ var recipeList = [
             "Drain.",
             "Combine potatoes with butter, cream, salt and pepper in large bowl. Mix or mash to an even but not too fine cosistency. Bake in large oven-proof Casserole for about 15 minutes at 350 degrees until golden brown."
         ],
-        "id": "1151DAJE"
+        "id": "578M7403"
     },
     {
         "name": "Roasted Potatoes, Carrots, Parsnips and Brussel Sprouts",
@@ -6396,7 +6401,7 @@ var recipeList = [
             "Grease an 11 by 17-inch baking sheet pan with extra-virgin olive oil. Place vegetables in baking sheet and add the dried herbs, salt and pepper. Toss well, evenly coating all the vegetables with the seasonings and oil. Add more oil if the vegetables seem dry.",
             "Spread the vegetables evenly on a large baking sheet. Place on middle rack in oven and bake for 35 to 40 minutes."
         ],
-        "id": "1245VAGI"
+        "id": "748W8GMY"
     },
     {
         "name": "Nobu's Chicken Stock",
@@ -6453,7 +6458,7 @@ var recipeList = [
             "Heat the oven to 425 degrees. Roast the back and neck in a shallow roasting pan until lightly browned, about 20 minutes. Lower the heat to 375 and add the remaining ingredients, except the water. Roast for another 35 to 40 minutes.",
             "Transfer the mixture to a small stockpot. Place the roasting pan on top of the stove over high heat. Add 1 cup of water. Bring to a boil, scraping vigorously to get the browned bits from the bottom of the pan. Pour this over the bones and vegetables. Add the remaining water. Bring to a boil. Lower the heat and simmer for 2 hours. Strain through a fine sieve."
         ],
-        "id": "5747DIYX"
+        "id": "01A27Y4P"
     },
     {
         "name": "Basic Stovetop Rice",
@@ -6479,7 +6484,7 @@ var recipeList = [
             "To cook in an oven, bring rice to a boil on the stovetop, stir, cover and put it in a 350-degree oven to cook through (about 17 minutes for most white rice). Rest it covered at room temperature, for 10 minutes.",
             "To cook in a multicooker, rinse rice and pressure cook on high (about 3 minutes for short-grain rice; 8 minutes for long-grain rice; 22 minutes for brown rice). Open cooker after it’s depressurized naturally, then loosely cover the pot with a dish towel and plate and let it rest for 10 minutes."
         ],
-        "id": "0867ZLHM"
+        "id": "36V54AVC"
     },
     {
         "name": "Stuffing",
@@ -6552,7 +6557,7 @@ var recipeList = [
             "Add 2 beaten eggs and all other ingredients.",
             "Either put into turkey or bake in dish for 20 minutes."
         ],
-        "id": "1636GVCB"
+        "id": "55014OW6"
     },
     {
         "name": "Baked Pork Chops",
@@ -6617,7 +6622,7 @@ var recipeList = [
             "Bake pork chops in the preheated oven for 15 to 20 minutes for 1-inch thick boneless pork chops. The pork chops are done when the internal temperature measures 145° F on an instant read thermometer. (Thinner pork chops will cook faster, bone-in pork chops will take longer to cook. See notes.) Be careful not to overcook the pork chops or they may dry out.",
             "Let the pork chops rest for 5 minutes and then serve."
         ],
-        "id": "1850PAFJ"
+        "id": "15218PSU"
     },
     {
         "name": "Chicken and Barley Stew",
@@ -6754,7 +6759,7 @@ var recipeList = [
             "Deglaze the pan again with the rest of the white wine (or white wine vinegar), scraping up browned bits on the bottom of the pan.",
             "Add the chicken broth, potatoes, shredded chicken, barley, chicken broth, thyme, rosemary, and sage to the pot. Stir to combine and bring to a boil. Reduce to a simmer, cover with a lid, and cook for about 30 minutes, until chicken and potatoes are tender. Garnish with fresh parsley if desired."
         ],
-        "id": "1476OMZL"
+        "id": "P2W5841Q"
     },
     {
         "name": "Ribollita  With Cabbage",
@@ -6901,7 +6906,7 @@ var recipeList = [
             "Stir in the beans and their liquid, add the bouquet garni and another 2 cups of water, and bring to a boil. Reduce the heat, cover and simmer 30 minutes or until the beans are tender. Taste and adjust seasonings. Add the greens, raise the heat and simmer covered for another 15 minutes. The greens should be falling apart in the soup. Remove the bouquet garni.",
             "Meanwhile, preheat the oven to 300 degrees. Place the bread on the rack, and toast until dry but not browned, about 15 to 20 minutes. Break up into pieces. Remove about 1 cup of the beans and vegetables from the soup. Bring the remaining soup to a simmer, and add the bread. Submerge in the soup, and remove the soup from the heat. Let stand for 20 minutes until the bread is soft. Blend, using a hand immersion blender or the pulse action of a food processor. Return to the pot, add the beans and vegetables you set aside, and heat through. The ribollita should have the consistency of oatmeal. Dilute with water as necessary. Taste and adjust salt and pepper. Spoon the ribollita into bowls or onto soup plates, drizzle olive oil over each bowl and serve."
         ],
-        "id": "6887PIFH"
+        "id": "JO7PGGFW"
     },
     {
         "name": "Perfect Instant Ramen",
@@ -6953,7 +6958,7 @@ var recipeList = [
             "Remove the pan from the heat and carefully add the egg. Do not stir; pull the noodles over the egg and let sit for one minute to poach.",
             "Carefully transfer everything to a serving bowl, add the butter, cheese and sesame seeds and mix. Garnish with the scallions if desired."
         ],
-        "id": "0004BCUI"
+        "id": "6D482KG1"
     },
     {
         "name": "San Francisco-Style Vietnamese American Garlic Noodles",
@@ -7030,7 +7035,7 @@ var recipeList = [
             "Meanwhile, bring 1½ inches of water to a boil in a 12-inch skillet or sauté pan over high heat. (Alternatively, heat up just enough water to cover the spaghetti in a large Dutch oven or saucepan.) Add the pasta, stir a few times to make sure it’s not clumping, and cook, stirring occasionally, until just shy of al dente (about 2 minutes short of the recommended cook time on the package).",
             "Using tongs, transfer the cooked pasta to the garlic sauce, along with whatever water clings to it. (Reserve the pasta water in the skillet.) Increase the heat to high, add the cheese to the wok, and stir with a wooden spatula or spoon and toss vigorously until the sauce is creamy and emulsified, about 30 seconds. If the sauce looks too watery, let it keep reducing. If it looks greasy, splash some more cooking water into it and let it re-emulsify. Stir in the scallions (if using), and serve immediately."
         ],
-        "id": "0641DRPB"
+        "id": "M9ZP5L7U"
     },
     {
         "name": "Pork Chops",
@@ -7087,7 +7092,7 @@ var recipeList = [
             "In an oven safe skillet over medium-high heat, heat olive oil then add pork chops. Sear until golden, 4 minutes, flip and cook 4 minutes more. Brush pork chops generously with garlic butter.",
             "Place skillet in oven and cook until cooked through (145° for medium), 10-12 minutes. Serve with more garlic butter."
         ],
-        "id": "6532DDRI"
+        "id": "69INFL38"
     },
     {
         "name": "Brown Sugar Garlic Pork Chops",
@@ -7151,6 +7156,6 @@ var recipeList = [
             "Bake for 10-14 minutes or until pork chops reach an internal temperature of 145 degrees. You can pull it out of the oven when it is a few degrees below 145. The temperature will rise a few degrees.",
             "Plate pork chops and spoon sauce over them."
         ],
-        "id": "9374AHCD"
+        "id": "57BBEF1A"
     }
 ]

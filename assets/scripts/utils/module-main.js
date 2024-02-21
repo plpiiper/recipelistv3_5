@@ -95,12 +95,70 @@ function createElement(obj){
     return elem
 }
 
-function removeChildren(parent,lim){
-    let num = lim ? lim : 0;
-    while (parent.childNodes.length > num){parent.childNodes[0].remove()}
+function removeChildren(parent,st){
+    let start = st ? st : 0;
+    while (parent.childNodes.length > start){parent.childNodes[start].remove()}
     return parent
 }
 function addArrayChildren(parent,f,list){
     for (let i=0;i<list.length;i++){append(f(list[i]),parent)}
 }
 
+
+
+function popupcontainer(parent,id){
+    if (pd(id) !== null){return}
+    // do not create a new one if exists
+
+    let c = coverDiv(parent);
+    let div = append(cre("div", "largePopupDiv right"),c);
+    div.id = id;
+    div.exit = function(){c.remove();}
+    div.getData = function(name){
+        if (name){
+            return typeof div.dataset[name] === "string" ? div.dataset[name] : JSON.parse(div.dataset[name])
+        }
+        return typeof div.dataset.data === "string" ? div.dataset.data : JSON.parse(div.dataset.data)
+    };
+    div.saveData = function(obj){
+        if (typeof obj === "string"){div.dataset.data = obj;}
+        else {div.dataset.data = JSON.stringify(obj);}
+    };
+
+
+    // TITLE
+    let title = append(cre("h2","lpHeader"),div);
+    div.rename = function(name){title.innerText = name;}
+    // BODY
+    let body = append(cre("div","lpBody"),div);
+    // TEXT
+    let ext = append(cre("span","lpExit"),div);
+    ext.innerText = "EXIT";
+    ext.onclick = div.exit;
+
+    div.body = body;
+    return div
+}
+
+function popupcontent(type,div){
+    if (type === "ci"){
+        // Modifier Options
+        div.classList.add("right")
+        div.rename("Edit Ingredient")
+        let ig = JSON.parse(div.getData());
+        if (ig.type){
+
+        } else {
+            console.log(ig)
+            append(popupInputElem(ig),div.body)
+
+        }
+
+    }
+    else if (type === "bpSelectModule"){
+        console.log("text")
+    }
+    else {console.log("huh?"); return 1}
+
+    return div
+}

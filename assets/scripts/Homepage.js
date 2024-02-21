@@ -148,11 +148,6 @@ function filterPopup(){
     }, 1)
 }
 
-function getCategories(){
-    let arr = {}; recipeList.map(x => arr[x.cat] ? arr[x.cat] += 1 : arr[x.cat] = 1);
-    return [Object.keys(arr),arr]
-}
-
 function createPopupFilter(name){
     let div = cre("button","filterPopupDiv");
         let nm = append(cre("div","fpName"),div); nm.innerText = name;
