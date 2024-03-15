@@ -152,6 +152,10 @@ div, input, span, a, h1, h2, h3, textarea, button, select {
     font-size: 1.25rem;
 } .recipeName:hover {text-decoration: black;}
 
+.filterBtn {
+    padding: 0; background-color: white;
+    margin-right: 1rem;
+} .filterBtn .icon {padding: 0; display: flex; align-items: center;}
 
 /* recipe.html */
 #recipePage {
@@ -597,6 +601,42 @@ div, input, span, a, h1, h2, h3, textarea, button, select {
 }
 
 @media only screen and (max-width: 900px) {
+    #homePage > .top {
+        overflow: auto;
+    }
+    #homePage > .top .filterTitle {
+        display: none;
+    }
+    #barBody {
+        overflow-x: auto;
+    }
+    #homePage > .top > .searchBar {
+        width: 10rem; min-width: unset;
+    }
+    .searchBar .searchInput {
+        width: 100%
+    }
+
+    .recipeDiv {
+        padding: 1rem 0.25rem;
+    }
+    .recipeFav {
+        font-size: 1.5rem;
+    }
+    .recipeCat {
+        font-size: 0.8rem;
+        min-width: 5rem;
+        max-width: 10rem;
+        overflow-x: auto;
+    }
+    .recipeName {
+        font-size: 0.95rem;
+        overflow-x: auto;
+        padding: 0;
+        flex-wrap: nowrap;
+    }
+
+
     #recipePage {
         flex-direction: column-reverse;
     }
@@ -614,12 +654,13 @@ div, input, span, a, h1, h2, h3, textarea, button, select {
     }
     #recipePage > .right > .rlLink {
         margin-right: 2rem; justify-content: right;
+        font-size: 1.25rem;
     }
     #recipePage > .right .iconA span, .rlBtn {
-        font-size: 1.5rem !important;
         padding: 0.15rem;
+        font-size: 0.8rem !important;
     }
-    .rlBtn { padding: 1rem;}
+    .rlBtn { padding: 0.5rem !important; font-size: 0.8rem !important;}
     .ingredientDiv, .stepDiv {
         font-size: 1.3rem;
     } #recipeEditor .ingredientDiv, .stepDiv {

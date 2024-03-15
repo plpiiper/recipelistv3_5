@@ -52,11 +52,14 @@ function createTopHomePage(){
         let fdst = append(cre("div","barBody"),div);
             let fd = append(cre("div","filterBar"),fdst);
                 let ft = append(cre("h2","filterTitle"),fd); ft.innerText = "Filters";
-                let type = append(ic("restaurant_menu"),fd); type.onclick = function(){
+                let typeD = append(cre("button","filterBtn"),fd);
+                let type = append(ic("restaurant_menu"),typeD); type.onclick = function(){
                     filterPopup();
                     type.classList.add("selected");
                 }; type.id = "filterCat";
-                let fav = append(ic("favorite"),fd); fav.onclick = function(){
+
+                let favD = append(cre("button","filterBtn"),fd);
+                let fav = append(ic("favorite"),favD); fav.onclick = function(){
                     const KEY = "fav"
                     if (hp.getFilter(KEY) !== undefined && hp.getFilter(KEY).includes(true)){
                         hp.addFilter("del",KEY);
