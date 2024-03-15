@@ -145,13 +145,53 @@ function popupcontent(type,div){
         // Modifier Options
         div.classList.add("right")
         div.rename("Edit Ingredient")
-        let ig = JSON.parse(div.getData());
+        let id = div.getData();
+        let ig = JSON.parse(pd(id).dataset.data);
+
         if (ig.type){
+            div.rename("Edit Group")
+            let grd = append(cre("div","ppGroupDiv"),div.body)
+                let grtx = append(cre("span","ppGroupName"),grd);
+                    grtx.innerText = "Group Name"
+                let gr = append(cre("input","ppGroupInput"),grd);
+                    gr.value = ig.type
+                gr.onkeydown = refreshItem;
+                gr.onblur = refreshItem;
+
+                function refreshItem(){
+                console.log("?")
+                    let ld = pd(".reIngredientsDiv")[0].childNodes[1];
+                    let it = findReIngredient(id,ld.getList(),ld)
+                    it.obj.type = gr.value;
+                    let li = save_item(id,it.obj,ld.getList(),"ingredients");
+                    pd("recipeEditor").change(li,"ingredients")
+                    it.elem.editData(it.obj)
+                    it.elem.refresh()
+                }
+            let del = prepend(cre("button","ppiDelete"),div.body);
+            del.innerText = "Delete Item";
+            del.onclick = function(){
+                let ld = pd(".reIngredientsDiv")[0].childNodes[1];
+                let it = findReIngredient(id,ld.getList(),ld)
+                let lis = delete_item(id,ld.getList(),"ingredients");
+                re.change(lis,"ingredients")
+                it.elem.parentNode.remove()
+                div.exit()
+            }
 
         } else {
             console.log(ig)
             append(popupInputElem(ig),div.body)
-
+            let del = prepend(cre("button","ppiDelete"),div.body);
+                del.innerText = "Delete Item";
+                del.onclick = function(){
+                    let ld = pd(".reIngredientsDiv")[0].childNodes[1];
+                    let it = findReIngredient(id,ld.getList(),ld)
+                    let lis = delete_item(id,ld.getList(),"ingredients");
+                    re.change(lis,"ingredients")
+                    it.elem.parentNode.remove()
+                    div.exit()
+                }
         }
 
     }
@@ -160,5 +200,131 @@ function popupcontent(type,div){
     }
     else {console.log("huh?"); return 1}
 
+    return div
+}
+
+
+function addIngredient(obj,type){
+    let div = cre("div","ingredientDiv");
+    div.dataset.data = JSON.stringify(obj);
+    div.getData = function(){return JSON.parse(div.dataset.data);}
+    div.saveData = function(data){div.dataset.data = JSON.stringify(data);}
+    div.editData = function(data,key){
+        let dt = div.getData();
+        key ? dt[key] = data : dt = data
+        div.saveData(dt);
+    }
+    if (obj.type){
+        div.classList.add("list");
+        div.getIngredients = function(){
+            return Array.from(div.childNodes).filter(x => x.classList.contains("ingredientDiv")).map(x => x.getData())
+        }
+        div.getItem = function(){return div.getData();}
+
+        let ti = append(cre("div","ingredientDivHeader"),div);
+        ti.innerText = obj.type.toUpperCase();
+
+        div.refresh = function(newObj){
+            if (newObj){div.saveData(newObj)}
+            let o = div.getData();
+            if (o.type){
+                ti.innerText = o.type.toUpperCase();
+                removeChildren(div,1)
+                for (var i=0; i<o.ingredients.length; i++){
+                    let igd = append(addIngredient(o.ingredients[i],"edit"),div);
+                    o.ingredients[i].id = igd.ingredientDiv.id;
+                }; div.saveData(o)
+                if (type !== "edit"){
+                    for (var i=1; i<div.childNodes.length; i++) {
+                        let tx = prepend(cre("span", "idNumber"), div.childNodes[i])
+                        tx.innerText = "(#" + i + ")";
+                    }}
+                let add = append(cre("button"),div); add.innerText = "Add Ingredient"; add.onclick = function(){
+                    let dt = div.getData();
+                    dt.ingredients.push({ingredient: "New Ingredient"});
+                    div.saveData(dt)
+                    let sv = save_item(dt.id,dt,re.bll.getList(),"ingredients");
+                    re.change(sv,"ingredients");
+                    div.refresh()
+                }
+            }}
+    } else {
+        div.setListener = function(type,f){div.addEventListener(type,function(){f(div)});}
+        let spam = append(cre("span","idAmount"),div);
+        let spsz = append(cre("span","idSize"),div);
+        let spig = append(cre("span","idIngredient"),div);
+        let spcm = append(cre("div","idCommentList"),div);
+
+        div.refresh = function(newObj){
+            if (newObj){div.saveData(newObj)}
+            let o = div.getData();
+            if(o.amount){spam.innerText = o.amount;}
+            else {spam.innerText = null;}
+            if(o.size){spsz.innerText = o.size}
+            else {spsz.innerText = null;}
+            if(o.ingredient){spig.innerText = o.ingredient}
+            else {spig.innerText = null;}
+            if(o.comment){
+                removeChildren(spcm);
+                for (var i=0; i<o.comment.length; i++){
+                    let sc = append(cre("span","idComment"),spcm);
+                    sc.innerText = o.comment[i];
+                }
+            }
+        }
+    }
+    if (type === "edit"){
+        if (!obj.id){
+            let sp_id = generateID();
+            while (pd(sp_id) !== null){sp_id = generateID();}
+            div.id = sp_id; div.editData(sp_id,"id"); }
+        else {div.id = obj.id;}
+
+        let st = cre("div","reIngredientDiv");
+        let edit = append(cre("button","reIngredientEditBtn"),st); append(ic("edit"),edit);
+
+        append(div,st)
+
+        let updown = append(cre("div","reIngredientUpDown"),st);
+        let u = append(cre("button","reIngredientUpDownBtn"),updown);
+            append(ic("expand_less"),u); u.onclick = function(){
+            let lis = re.bll.getList()
+            let r = findReIngredient(div.id,lis,re.bll)
+            let indL = get_index("id",div.id,lis,"ingredients");
+                let ind = indL.pop();
+                if (ind !== 0){
+                    re.change(insertItemAfter(ind-1,indL,r.obj,lis,"ingredients"),"ingredients");
+                    r.elem.parentNode.previousElementSibling.before(r.elem.parentNode)
+                }
+            }
+        let d = append(cre("button","reIngredientUpDownBtn"),updown);
+            append(ic("expand_more"),d); d.onclick = function(){
+            let lis = re.bll.getList();
+            let r = findReIngredient(div.id,lis,re.bll)
+            let indL = get_index("id",div.id,lis,"ingredients");
+            let ind = indL.pop();
+            re.change(insertItemAfter(ind+1,indL,r.obj,lis,"ingredients"),"ingredients");
+            if (r.elem.parentNode.nextElementSibling !== null && r.elem.parentNode.nextElementSibling.nodeName !== "BUTTON"){
+            r.elem.parentNode.nextElementSibling.after(r.elem.parentNode); }
+            }
+        st.editDiv = edit;
+        st.ingredientDiv = div;
+        st.updownDiv = updown;
+
+
+
+        edit.addEventListener("click",function(elem){
+            console.log("???")
+            let ppd = popupcontainer("recipeEditor","popupCreateIngredient");
+            if (ppd){
+                ppd.saveData(div.id);
+                popupcontent("ci",ppd)
+                ppd.elem = elem;
+            }
+        })
+        div.refresh()
+        return st
+    }
+    div.refresh()
     return div
 }

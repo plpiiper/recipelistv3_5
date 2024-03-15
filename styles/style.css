@@ -177,6 +177,11 @@ div, input, span, a, h1, h2, h3, textarea, button, select {
     margin-right: 1rem;
     min-width: 50px;
 }
+.idAmount:empty, .idSize:empty, .idIngredient:empty {
+    margin-right: 0;
+    min-width: 0;
+}
+
 .idNumber {font-size: 1rem; margin-right: 1rem;}
 .idAmount {text-align: center;}
 .idCommentList {
@@ -304,12 +309,13 @@ div, input, span, a, h1, h2, h3, textarea, button, select {
     width: 100%; height: calc(100% - 75px);
     display: flex;
 }
-#recipeEditor > .bot button {
+.bplusList {display: flex; gap: 1rem; padding-top: 0.5rem;}
+.bplusList button {
     font-size: 1.2rem;
     background-color: white;
     border: 1px solid black;
     padding: 0.5rem 1rem;
-} #recipeEditor > .bot button:hover {cursor: pointer;}
+} .bplusList > button:hover {cursor: pointer;}
 .reIngredientsDiv,.reStepsDiv {
     width: 50%; height: 100%;
     border-right: 2px solid black;
@@ -321,25 +327,68 @@ div, input, span, a, h1, h2, h3, textarea, button, select {
     font-size: 2rem; text-align: center;
     margin: 0;
 }
-.reIngredientsDiv .list, .reStepsDiv .list {
-    width: 100%; height: 100%;
+.reIngredientsDiv > .list, .reStepsDiv > .list {
+    width: 100%;
     display: flex; flex-direction: column;
     overflow: auto;
+    flex-flow: wrap;
+    padding-right: 1rem;
 }
+.ingredientDiv.list > button {
+    background-color: transparent;
+    border-top: 2px solid black;
+    margin-top: 0.2rem;
+    font-size: 1.3rem;
+
+} .ingredientDiv.list > button:hover {
+    cursor: pointer;
+      text-decoration: underline;
+}
+
 .reStepsDiv .list textarea {
-    width: 100%; height: 100px;
+    width: 100%; height: 5rem;
     margin-bottom: 1rem;
     resize: none;
     padding: 0.5rem 1rem;
     border: 1px solid black;
+    font-size: 1.25rem;
 }
 
-.reIngredientDiv {
+.reIngredientDiv, .reStepDiv {
     width: 100%;
     padding: 1rem;
+    display: flex;
+    align-items: flex-start;
 }
-
-
+.reIngredientEditBtn {
+    width: 1rem; height: 1rem;
+    min-width: 2rem; min-height: 2rem;
+    display: flex; align-items: center; justify-content: center;
+    background-color: transparent;
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+} .reIngredientEditBtn:hover {cursor: pointer; color: orange;}
+.reIngredientUpDown {
+    margin-top: 0.5rem;
+    display: flex; flex-direction: column;
+}
+    .reIngredientUpDownBtn {
+        background-color: transparent;
+        line-height: 0;
+    } .reIngredientUpDownBtn:hover {
+        cursor: pointer; color: orange;
+    }
+    .reIngredientUpDownBtn .icon {
+        width: fit-content; height: fit-content;
+    }
+    .reIngredientUpDown > .reIngredientUpDownBtn:first-child {
+        margin-bottom: 0.75rem;
+    }
+.reStepDel {
+    background-color: transparent;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 1rem;
+} .reStepDel:hover {cursor: pointer; color: orange;}
 
 .largePopupDiv {
     width: 720px;
@@ -419,6 +468,22 @@ div, input, span, a, h1, h2, h3, textarea, button, select {
     display: flex; align-items: center; justify-content: center;
     background-color: transparent; cursor: pointer;
 } .ppieComDiv button:hover { border: 1px solid black;}
+  .ppieComsBtn:hover {cursor: pointer; color: orange;}
+  .ppieComsBtn {background-color: transparent; display: flex; align-items: center; justify-content: center;}
 .ppieComDiv input {
     display: flex; width: 100%;
+}
+.ppiDelete {
+    padding: 0.5rem 1rem; font-size: 1.25rem;
+    margin: 1rem auto;
+    border: 1px solid black;
+    background-color: white;
+} .ppiDelete:hover {cursor: pointer; text-shadow: 1px 1px rgba(0,0,0,0.2);}
+
+.ppGroupDiv {display: flex; width: 100%; align-items: center;}
+.ppGroupName {min-width: fit-content; margin-right: 1rem;}
+.ppGroupInput {
+    border: 1px solid black;
+    padding: 0.25rem 0.75rem;
+    width: 100%;
 }

@@ -47,7 +47,7 @@ function addItem(pID,obj,list,parentKey){ //parent id, note id
     if (typeof pID !== "string"){m.push(obj); return m;}
     let addLoc = get_index("id",pID,m,parentKey);
     let addObj = get_item(addLoc,m,parentKey);
-    addObj.items.push(obj);
+    addObj[parentKey].push(obj);
     return m
 }
 function insertItemAfter(index,pLoc,obj,list,parentKey){
@@ -114,6 +114,7 @@ function save_item(id,newObj,list,parentKey){
     }
     let folder = get_index("id",id,list,parentKey);
     let item = folder.pop();
+    return list
     if (folder.length === 0){
         list[item] = newObj
     } else {// main
@@ -168,80 +169,4 @@ function generateID(){
         id += vallist[Math.floor(Math.random() * vallist.length)]
     }
     return id
-}
-
-
-function addIngredient(obj){
-    let div = cre("div","ingredientDiv");
-        div.dataset.data = JSON.stringify(obj);
-        div.getData = function(){return JSON.parse(div.dataset.data);}
-        div.saveData = function(data){div.dataset.data = JSON.stringify(data);}
-        div.editData = function(data,key){
-            let dt = div.getData();
-            if (key){dt[key] = data;} else {dt = data;}
-            div.saveData(dt);
-        }
-    if (obj.type){
-        div.setListener = function(type,f){
-            div.addEventListener("click",function(){
-                let t = event.target;
-                while (t && t.nodeName && (t.className.includes("idComment") || t.nodeName.toLowerCase() !== "div")){t = t.parentNode;}
-                if (t.classList.contains("ingredientDiv") && !t.classList.contains("list")){   f(t);     }
-                else { f(div);}
-            })
-            // div.addEventListener(type,f);
-        }
-        div.classList.add("list");
-        div.getItems = function(){
-            return Array.from(div.childNodes).filter(x => x.classList.contains("ingredientDiv")).map(x => x.getData())
-        }
-
-        let ti = append(cre("div","ingredientDivHeader"),div);
-        ti.innerText = obj.type.toUpperCase();
-
-        div.refresh = function(newObj){
-            if (newObj){div.saveData(newObj)}
-            let o = div.getData();
-            if (o.type){
-                ti.innerText = obj.type.toUpperCase();
-                removeChildren(div,1)
-                addArrayChildren(div,addIngredient,obj.ingredients)
-                    for (var i=1; i<div.childNodes.length; i++) {
-                        let tx = prepend(cre("span", "idNumber"), div.childNodes[i])
-                        tx.innerText = "(#" + i + ")";
-                    }
-        }}
-    } else {
-        div.setListener = function(type,f){div.addEventListener(type,function(){f(div)});}
-        let spam; let spsz; let spig; let spcm;
-        if (obj.amount){
-            spam = append(cre("span","idAmount"),div);
-        }
-        if (obj.size){
-            spsz = append(cre("span","idSize"),div);
-        }
-        if (obj.ingredient){
-            spig = append(cre("span","idIngredient"),div);
-        }
-        if (obj.comment){
-            spcm = append(cre("div","idCommentList"),div);
-        }
-
-        div.refresh = function(newObj){
-            if (newObj){div.saveData(newObj)}
-            let o = div.getData();
-            if(spam){spam.innerText = o.amount;}
-            if(spsz){spsz.innerText = o.size}
-            if(spig){spig.innerText = o.ingredient}
-            if(spcm){
-                removeChildren(spcm);
-                for (var i=0; i<o.comment.length; i++){
-                    let sc = append(cre("span","idComment"),spcm);
-                    sc.innerText = o.comment[i];
-                }
-            }
-        }
-    }
-    div.refresh()
-    return div
 }
