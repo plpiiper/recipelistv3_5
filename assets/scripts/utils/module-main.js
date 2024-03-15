@@ -333,3 +333,27 @@ function addIngredient(obj,type){
     div.refresh()
     return div
 }
+
+
+function confirmDiv(){
+let div = cre("div","confirmDiv");
+    div.exit = function(){
+        if (div.parentNode && div.parentNode.classList.contains("coverDiv")){div.parentNode.remove();}
+        else {div.remove();}
+    }
+    div.setFunction = function(f){
+        yes.onclick = f;
+    }
+    div.setTitle = function(tx){ti.innerText = tx;}
+    div.setDesc = function(tx){desc.innerText = tx;}
+
+    let ti = append(cre("h2","confirmTitle"),div);
+    let desc = append(cre("span","confirmDesc"),div);
+    let btns = append(cre("div","confirmBtnDiv"),div);
+        let yes = append(cre("button","confirmBtn yes"),btns);
+            yes.innerText = "Confirm";
+        let no = append(cre("button","confirmBtn no"),btns);
+            no.innerText = "Exit";
+            no.onclick = div.exit;
+return div
+}

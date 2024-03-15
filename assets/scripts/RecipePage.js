@@ -28,7 +28,15 @@ if (locArr.length > 1){
                     append(ic("edit"),ed); ed.href = "edit.html?id=" + r.id;
                 let del = append(cre("a","iconA"),edDelDiv);
                     append(ic("delete"),del); del.onclick = function() {
-                        console.log("confirm del of ",r)
+                        let c = coverDiv("recipePage");
+                            let cd = append(confirmDiv(),c);
+                            cd.setTitle("Delete Recipe")
+                            cd.setDesc("Are you sure you want to delete the recipe: \n\"" + r.name + "\"?")
+                            cd.setFunction(function(){
+                                recipeList = recipeList.filter(x => x.id !== r.id);
+                                saveLS()
+                                window.location.href = "index.html";
+                            })
                     }
                     let linkI = append(cre("a","rlLink no-link-style"),rd); linkI.href = "#ingredients"; linkI.innerText = "Ingredients";
             let linkS = append(cre("a","rlLink no-link-style"),rd); linkS.href = "#steps"; linkS.innerText = "Steps";

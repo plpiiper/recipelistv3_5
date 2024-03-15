@@ -49,22 +49,28 @@ function createTopHomePage(){
             }; inp.placeholder = "Search";
             inp.onclick = function(){  if (pd("filterPopup") !== null){   pd("filterPopup").remEv();
             }}
-        let fd = append(cre("div","filterBar"),div);
-            let ft = append(cre("h2","filterTitle"),fd); ft.innerText = "Filters";
-            let type = append(ic("restaurant_menu"),fd); type.onclick = function(){
-                filterPopup();
-                type.classList.add("selected");
-            }; type.id = "filterCat";
-            let fav = append(ic("favorite"),fd); fav.onclick = function(){
-                const KEY = "fav"
-                if (hp.getFilter(KEY) !== undefined && hp.getFilter(KEY).includes(true)){
-                    hp.addFilter("del",KEY);
-                    fav.classList.remove("favorited");
-                } else {
-                    hp.addFilter(KEY,true,"e");
-                    fav.classList.add("favorited");
+        let fdst = append(cre("div","barBody"),div);
+            let fd = append(cre("div","filterBar"),fdst);
+                let ft = append(cre("h2","filterTitle"),fd); ft.innerText = "Filters";
+                let type = append(ic("restaurant_menu"),fd); type.onclick = function(){
+                    filterPopup();
+                    type.classList.add("selected");
+                }; type.id = "filterCat";
+                let fav = append(ic("favorite"),fd); fav.onclick = function(){
+                    const KEY = "fav"
+                    if (hp.getFilter(KEY) !== undefined && hp.getFilter(KEY).includes(true)){
+                        hp.addFilter("del",KEY);
+                        fav.classList.remove("favorited");
+                    } else {
+                        hp.addFilter(KEY,true,"e");
+                        fav.classList.add("favorited");
+                    }
+                    hp.listDiv.filterRecipes();
                 }
-                hp.listDiv.filterRecipes();
+        let std = append(cre("div","filterBar"),fdst);
+            let st = append(cre("h2","filterTitle"),std); st.innerText = "Settings";
+            let stbtn = append(ic("settings"),std); stbtn.onclick = function(){
+                settingsPopup()
             }
         let ad = append(cre("div","addBar"),div);
             let addA = append(cre("a","iconA"),ad); addA.href = "edit.html?id=NEW";
@@ -175,5 +181,56 @@ function createPopupFilter(name){
 
 
 
+function settingsPopup(){
+let c = coverDiv("content");
+let div = append(cre("div"),c); div.id = "settingsDiv";
+    let ti = append(cre("h2","settingsTitle"),div);
+        ti.innerText = "Settings";
+    let slDiv = append(cre("div","SaveLoadDiv"),div);
+        let sTx = append(cre("span","settingsHeader"),slDiv);
+        sTx.innerText = "Save";
+        let sInpDiv = append(cre("button","settingsButton"),slDiv)
+            let sInpIcon = append(ic("upload"),sInpDiv);
+            let sInpInput = append(cre("input","settingsInput"),sInpDiv);
+                sInpInput.value = "Download Files"
+                sInpInput.type = "button"; sInpInput.onclick = function(){
+                    div.download("RecipesV3.json",JSON.stringify(recipeList))
+                }; sInpIcon.onclick = sInpInput.onclick;
+        let lTx = append(cre("span","settingsHeader"),slDiv);
+        lTx.innerText = "Load";
+        let lInpDiv = append(cre("button","settingsButton"),slDiv)
+            let lInpIcon = append(ic("download"),lInpDiv);
+            let lInpInput = append(cre("input","settingsInput"),lInpDiv);
+                lInpInput.type = "file"; lInpInput.oninput = function(){
+                    let f = lInpInput.files[0];
+                    let r = new FileReader();
+                    r.onload = function() {
+                        let text = r.result;
+                        try {
+                            let rl = JSON.parse(text);
+                            recipeList = rl;
+                            pd("homePage").listDiv.changeList(recipeList);
+                            saveLS()
+                            // SUCCESS
+                        } catch(err){
+                            console.log("error")
+                        }
+                    };
+                    r.readAsText(f);
+                }; lInpIcon.onclick = lInpInput.click;
+
+    div.download = function(n, text) {
+        let a = cre('a',"mainDownloadBtn");
+        a.href = "data:text/json;charset=utf-8," + encodeURIComponent(text);
+        a.download = n;
+        append(a,div); a.click(); a.remove();
+    }
+}
+
+
+
+
+
 createHomePage()
 let hp = pd("homePage");
+settingsPopup()
