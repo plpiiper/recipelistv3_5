@@ -180,7 +180,6 @@ function popupcontent(type,div){
             }
 
         } else {
-            console.log(ig)
             append(popupInputElem(ig),div.body)
             let del = prepend(cre("button","ppiDelete"),div.body);
                 del.innerText = "Delete Item";
@@ -319,7 +318,6 @@ function addIngredient(obj,type){
 
 
         edit.addEventListener("click",function(elem){
-            console.log("???")
             let ppd = popupcontainer("recipeEditor","popupCreateIngredient");
             if (ppd){
                 ppd.saveData(div.id);

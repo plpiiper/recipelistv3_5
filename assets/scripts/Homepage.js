@@ -187,18 +187,22 @@ let div = append(cre("div"),c); div.id = "settingsDiv";
     let ti = append(cre("h2","settingsTitle"),div);
         ti.innerText = "Settings";
     let slDiv = append(cre("div","SaveLoadDiv"),div);
-        let sTx = append(cre("span","settingsHeader"),slDiv);
+        let sDiv = append(cre("div","flex aCentered"),slDiv);
+            sDiv.style = "gap: 1rem;"
+        let sTx = append(cre("span","settingsHeader"),sDiv);
         sTx.innerText = "Save";
-        let sInpDiv = append(cre("button","settingsButton"),slDiv)
+        let sInpDiv = append(cre("button","settingsButton"),sDiv)
             let sInpIcon = append(ic("upload"),sInpDiv);
             let sInpInput = append(cre("input","settingsInput"),sInpDiv);
                 sInpInput.value = "Download Files"
                 sInpInput.type = "button"; sInpInput.onclick = function(){
                     div.download("RecipesV3.json",JSON.stringify(recipeList))
                 }; sInpIcon.onclick = sInpInput.onclick;
-        let lTx = append(cre("span","settingsHeader"),slDiv);
+        let lDiv = append(cre("div","flex aCentered"),slDiv);
+            lDiv.style = "gap: 1rem;"
+        let lTx = append(cre("span","settingsHeader"),lDiv);
         lTx.innerText = "Load";
-        let lInpDiv = append(cre("button","settingsButton"),slDiv)
+        let lInpDiv = append(cre("button","settingsButton"),lDiv)
             let lInpIcon = append(ic("download"),lInpDiv);
             let lInpInput = append(cre("input","settingsInput"),lInpDiv);
                 lInpInput.type = "file"; lInpInput.oninput = function(){
@@ -211,7 +215,6 @@ let div = append(cre("div"),c); div.id = "settingsDiv";
                             recipeList = rl;
                             pd("homePage").listDiv.changeList(recipeList);
                             saveLS()
-                            // SUCCESS
                         } catch(err){
                             console.log("error")
                         }
@@ -233,4 +236,3 @@ let div = append(cre("div"),c); div.id = "settingsDiv";
 
 createHomePage()
 let hp = pd("homePage");
-settingsPopup()

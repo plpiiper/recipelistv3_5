@@ -23,7 +23,7 @@ function createRecipeEditor(id){
     div.refresh = function(){
         let r = div.recipe;
         ni.value = r.name;
-        cat.choose(r.cat);
+        cat.value = r.cat;
         bll.refresh()
         sll.refresh()
     }
@@ -32,16 +32,22 @@ function createRecipeEditor(id){
         let t = append(cre("div","top"),div);
             let ni = append(cre("input"),t); ni.placeholder = "Name";
                 ni.oninput = function(){div.change(ni.value,"name");}
-            let cat = append(cre("select","reSelect"),t); let cs = getCategories()[0];
-                cat.choose = function(name){
-                    cat.value = name;
-                    div.change(name,"cat")
+            let catCats = append(ic("takeout_dining"),t);
+                catCats.classList.add("catCats");
+                catCats.onclick = function(){
+                    let gc = getCategories();
+                    let cv = coverDiv("recipeEditor")
+                    let cp = append(cre("div","categoryList"),cv);
+                    for (var i=0; i<gc[0].length; i++){
+                        let cd = append(cre("button","categoryBtn"),cp);
+                        cd.innerText = gc[0][i];
+                        cd.onclick = function(){cat.value = cd.innerText; cat.onkeyup(); cv.remove();}
+                    }
+                    let cph = prepend(cre("h2"),cp);
+                        cph.innerText = "Choose Existing Category"
                 }
-                cat.oninput = function(){cat.choose(cat.value);}
-                for (var i=0; i<cs.length; i++){
-                    let c = append(cre("option"),cat);
-                        c.innerText = cs[i]; c.value = cs[i];
-                }
+            let cat = append(cre("input","reSelect"),t);
+                cat.onkeyup = function(){ div.change(cat.value,"cat"); }
             let sv = append(cre("button"),t); sv.innerText = "Save";
                 sv.onclick = function(){
                     let r = div.recipe;
@@ -127,7 +133,6 @@ function createStepDiv(text){
         main.remove();
         let list = re.sll.getList();
         re.change(list,"steps");
-        console.log(re.recipe)
     }; append(ic("remove"),del);
 
 
@@ -190,7 +195,7 @@ function popupInputElem(obj){
                             txd.onkeyup = div.changeItem;
                             if (tx) {txd.value = tx;}
                 }
-    
+
     div.refresh = function(){
         if (obj.amount){am.value = obj.amount;}
         if (obj.size){sz.value = obj.size;}

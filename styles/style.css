@@ -49,6 +49,10 @@ div, input, span, a, h1, h2, h3, textarea, button, select {
     width: 100vw; height: 100vh; position: fixed; background-color: rgba(0,0,0,0.4); top: 0; left: 0;z-index: 5;
     display: flex; justify-content: center; align-items: center;
 }
+.flex {display: flex;}
+.flex.aCentered {align-items: center;}
+.flex.jCentered {justify-content: center;}
+.flex.wrap {flex-wrap: wrap;}
 
 #homePage {
     width: 100%; height: 100%;
@@ -248,39 +252,6 @@ div, input, span, a, h1, h2, h3, textarea, button, select {
     bottom: 1rem; right: 0;
     z-index: 2;
     padding: 0.25rem;
-}
-
-@media only screen and (max-width: 800px) {
-    #recipePage {
-        flex-direction: column-reverse;
-    }
-    #recipePage > div {
-        width: 100% !important;
-        height: fit-content !important;
-    }
-    .rlTitle {width: 100%;}
-    #recipePage > .right {
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: end;
-        border-left: none;
-        border-bottom: 2px solid black;
-    }
-    #recipePage > .right > .rlLink {
-        margin-right: 2rem; justify-content: right;
-    }
-    #recipePage > .right .iconA span, .rlBtn {
-        font-size: 1.5rem !important;
-        padding: 0.15rem;
-    }
-    .rlBtn { padding: 1rem;}
-    .ingredientDiv, .stepDiv {
-        font-size: 1.3rem;
-    } #recipeEditor .ingredientDiv, .stepDiv {
-        font-size: 1rem !important;
-    }
-
-    #recipePage .exitBtn {bottom: unset; top: 1rem;}
 }
 /* recipe editor */
 #recipeEditor {
@@ -496,6 +467,41 @@ div, input, span, a, h1, h2, h3, textarea, button, select {
     width: 100%;
 }
 
+.catCats {cursor: pointer;}
+    .catCats:hover {color: orange;}
+.categoryList {
+    max-width: 300px; min-width: 150px;
+    width: 30%;
+    display: flex; flex-direction: column;
+    gap: 0.75rem;
+    background-color: white;
+    padding: 1rem;
+}
+.categoryBtn {
+    background-color: white;
+    font-size: 1.5rem;
+    border-radius: 2px;
+    text-align: left;
+    padding-left: 1rem;
+    border-left: 2px solid black;
+} .categoryBtn:hover {
+    background-color: rgba(255,155,0,0.3);
+    cursor: pointer;
+}
+.categoryList h2 {
+    margin: 0 0 0.75rem; line-height: 0;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
 
 
 .confirmDiv {
@@ -527,6 +533,14 @@ div, input, span, a, h1, h2, h3, textarea, button, select {
     .confirmBtn.no:hover {color: red;}
 
 
+
+
+
+
+
+
+
+
 #settingsDiv {
     width: 75%; height: 75%;
     background-color: white;
@@ -544,6 +558,7 @@ div, input, span, a, h1, h2, h3, textarea, button, select {
     display: flex; align-items: center;
     gap: 1rem;
     padding: 0.5rem 1rem;
+    flex-wrap: wrap;
 }
 .settingsButton {
     display: flex;
@@ -554,6 +569,13 @@ div, input, span, a, h1, h2, h3, textarea, button, select {
 } .settingsButton:hover, .settingsButton input {cursor: pointer; }
 .settingsButton input {background-color: transparent;}
 .mainDownloadBnt {display: none;}
+
+
+
+
+
+
+
 
 @media print {
     #recipePage {flex-direction: column-reverse; height: unset;}
@@ -572,4 +594,37 @@ div, input, span, a, h1, h2, h3, textarea, button, select {
         height: unset;
         overflow: unset;
     }
+}
+
+@media only screen and (max-width: 900px) {
+    #recipePage {
+        flex-direction: column-reverse;
+    }
+    #recipePage > div {
+        width: 100% !important;
+        height: fit-content !important;
+    }
+    .rlTitle {width: 100%;}
+    #recipePage > .right {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: end;
+        border-left: none;
+        border-bottom: 2px solid black;
+    }
+    #recipePage > .right > .rlLink {
+        margin-right: 2rem; justify-content: right;
+    }
+    #recipePage > .right .iconA span, .rlBtn {
+        font-size: 1.5rem !important;
+        padding: 0.15rem;
+    }
+    .rlBtn { padding: 1rem;}
+    .ingredientDiv, .stepDiv {
+        font-size: 1.3rem;
+    } #recipeEditor .ingredientDiv, .stepDiv {
+          font-size: 1rem !important;
+      }
+
+    #recipePage .exitBtn {bottom: unset; top: 1rem;}
 }
