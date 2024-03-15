@@ -152,6 +152,10 @@ div, input, span, a, h1, h2, h3, textarea, button, select {
     font-size: 1.25rem;
 } .recipeName:hover {text-decoration: black;}
 
+.filterBtn {
+    padding: 0; background-color: white;
+    margin-right: 1rem;
+} .filterBtn .icon {padding: 0; display: flex; align-items: center;}
 
 /* recipe.html */
 #recipePage {
