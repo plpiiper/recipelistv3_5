@@ -230,15 +230,20 @@ function addIngredient(obj,type){
             if (o.type){
                 ti.innerText = o.type.toUpperCase();
                 removeChildren(div,1)
+
+
                 for (var i=0; i<o.ingredients.length; i++){
-                    let igd = append(addIngredient(o.ingredients[i],"edit"),div);
-                    o.ingredients[i].id = igd.ingredientDiv.id;
-                }; div.saveData(o)
+                    let igd = append(addIngredient(o.ingredients[i],type),div);
+                    if (type){  o.ingredients[i].id = igd.ingredientDiv.id;  }
+                };
+
+                div.saveData(o)
                 if (type !== "edit"){
                     for (var i=1; i<div.childNodes.length; i++) {
                         let tx = prepend(cre("span", "idNumber"), div.childNodes[i])
                         tx.innerText = "(#" + i + ")";
                     }}
+                else {
                 let add = append(cre("button"),div); add.innerText = "Add Ingredient"; add.onclick = function(){
                     let dt = div.getData();
                     dt.ingredients.push({ingredient: "New Ingredient"});
@@ -246,7 +251,7 @@ function addIngredient(obj,type){
                     let sv = save_item(dt.id,dt,re.bll.getList(),"ingredients");
                     re.change(sv,"ingredients");
                     div.refresh()
-                }
+                }}
             }}
     } else {
         div.setListener = function(type,f){div.addEventListener(type,function(){f(div)});}
