@@ -55,6 +55,7 @@ function createRecipeEditor(id){
                     if (rInd !== -1){   recipeList[rInd] = r;
                     } else {   recipeList.push(r);   }
                     saveLS()
+                    toast("Saved recipe!")
                 }
             let ex = append(cre("a"),t);
                 ex.href = "index.html";

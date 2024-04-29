@@ -355,3 +355,13 @@ let div = cre("div","confirmDiv");
             no.onclick = div.exit;
 return div
 }
+
+
+function toast(text){
+    let div = pd("toast");   if (div !== null) {div.remove()}
+    div = append(cre("div"),"content"); div.id = "toast";
+
+    div.innerText = text;
+    setTimeout(function(){   div.classList.add("visible");   },100)
+    setTimeout(function(){   div.classList.toggle("visible");   },3000)
+}

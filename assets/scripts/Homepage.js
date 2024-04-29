@@ -64,9 +64,11 @@ function createTopHomePage(){
                     if (hp.getFilter(KEY) !== undefined && hp.getFilter(KEY).includes(true)){
                         hp.addFilter("del",KEY);
                         fav.classList.remove("favorited");
+                        toast("Showing all recipes.")
                     } else {
                         hp.addFilter(KEY,true,"e");
                         fav.classList.add("favorited");
+                        toast("Filtering favorited recipes.")
                     }
                     hp.listDiv.filterRecipes();
                 }
@@ -88,8 +90,10 @@ function createRecipeDiv(obj){
     let fav = append(ic("favorite"),div); fav.classList.add("recipeFav");
     fav.onclick = function(){
         if (recipeValue("g",obj.id,'fav') === true){
-            recipeValue("o",obj.id,'fav',false)
-        } else {recipeValue("o",obj.id,'fav',true)}
+            recipeValue("o",obj.id,'fav',false);
+            toast("Unfavorited recipe.")
+        } else {recipeValue("o",obj.id,'fav',true);
+            toast("Favorited recipe.");}
         fav.refresh()
         saveLS()
         hp.listDiv.filterRecipes();
@@ -197,9 +201,10 @@ let div = append(cre("div"),c); div.id = "settingsDiv";
         let sInpDiv = append(cre("button","settingsButton"),sDiv)
             let sInpIcon = append(ic("upload"),sInpDiv);
             let sInpInput = append(cre("input","settingsInput"),sInpDiv);
-                sInpInput.value = "Download Files"
+                sInpInput.value = "Download Data"
                 sInpInput.type = "button"; sInpInput.onclick = function(){
-                    div.download("RecipesV3.json",JSON.stringify(recipeList))
+                    div.download("RecipesV3.json",JSON.stringify(recipeList));
+                    toast("Downloaded list of recipes.")
                 }; sInpIcon.onclick = sInpInput.onclick;
         let lDiv = append(cre("div","flex aCentered"),slDiv);
             lDiv.style = "gap: 1rem;"
